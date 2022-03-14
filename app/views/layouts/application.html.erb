@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MarcacaoDePresenca</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <!-- navbar -->
+      <%= render 'shared/navbar' %>
+
+      <!-- alert notifications -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+
+    <% else %>
+      <!-- yield -->
+      <%= yield %>
+        <li class="nav-item">
+            <%= link_to 'Entrar', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Registrar', new_user_registration_path, class: 'nav-link' %>
+        </li>
+    <% end %>
+  </body>
+</html>
