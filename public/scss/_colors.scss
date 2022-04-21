@@ -1,0 +1,11 @@
+
+
+$colors: $colors;
+$gray-colors: $gray-colors;
+$theme-colors: $theme-colors;
+
+@each $chave, $valor in $gray-colors {
+	.bg-#{$chave} {
+		background-color: $valor !important
+	}
+}

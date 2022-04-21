@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  quantidade_de_estudantes: 9.99
+
+two:
+  descricao: MyString
+  quantidade_de_estudantes: 9.99

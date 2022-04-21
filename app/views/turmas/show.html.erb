@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      <%= content_tag(:h4, "Turma: #{@turma.id}", class: "mb-0") %>
+      <div class="actions mb-0">
+        <%= link_to 'Voltar', turmas_path, class: "btn btn-sm btn-secondary text-light" %>
+        <%= link_to 'Editar', edit_turma_path(@turma), class: "btn btn-sm btn-primary text-light" %>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <!--
+    <div class="row">
+      <dl class="dl-horizontal">
+        <dt><%#= content_tag(:strong, "Descrição: ") %></dt>
+        <dd><%#= content_tag(:small, "#{@turma.descricao}") %></dd>
+        <dt><%#= content_tag(:strong, "Quantidade de estudantes: ") %></dt>
+        <dd><%#= content_tag(:small, "#{@turma.quantidade_de_estudantes}") %></dd>
+      </dl>
+    </div>
+    -->
+    <p>
+      <strong>Descricao:</strong>
+      <%= @turma.descricao %>
+    </p>
+
+    <p>
+      <strong>Quantidade de estudantes:</strong>
+      <%= @turma.quantidade_de_estudantes %>
+    </p>
+
+  </div>
+</div>
