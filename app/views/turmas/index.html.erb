@@ -1,35 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-
-<div class="card">
-  <div class="card-header border-0 d-flex justify-content-between align-content-center">
-    <%= content_tag(:h4, "Turmas", class: "mb-0") %>
-    <%= link_to 'Criar Turma', new_turma_path, class: "link text-dark" %>
+<div class="row row-cols-2">
+  <div class="col">
+    <h1>Turmas</h1>
   </div>
-  <div class="card-body mt-4">
-    <table class="table table-hover table-light">
-      <thead>
-        <tr>
-          <th>Descricao</th>
-          <th>Quantidade de estudantes</th>
-          <th class="text-right">Ações</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @turmas.each do |turma| %>
-          <tr>
-            <td><%= turma.descricao %></td>
-            <td><%= turma.quantidade_de_estudantes %></td>
-            <td><%= link_to 'Show', turma, class: "link text-dark" %></td>
-            <td><%= link_to 'Edit', edit_turma_path(turma), class: "link text-dark" %></td>
-            <td><%= link_to 'Destroy', turma, class: "link text-dark", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <div class="col d-flex align-items-center justify-content-end">
+    <%= link_to 'New Turma', new_turma_path, :class => "btn btn-md btn-info text-white" %>
   </div>
 </div>
 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Numero da turma</th>
+      <th>Descricao</th>
+      <th>Quantidade de estudante</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turmas.each do |turma| %>
+      <tr>
+        <td><%= turma.numero_da_turma %></td>
+        <td><%= turma.descricao %></td>
+        <td><%= turma.quantidade_de_estudante %></td>
+        <td><%= link_to 'Show', turma, :class => "btn btn-sm btn-primary text-white" %></td>
+        <td><%= link_to 'Edit', edit_turma_path(turma), :class => "btn btn-sm btn-warning text-white" %></td>
+        <td><%= link_to 'Destroy', turma, :class => "btn btn-sm btn-danger text-white", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 

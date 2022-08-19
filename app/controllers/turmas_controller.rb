@@ -25,7 +25,7 @@ class TurmasController < ApplicationController
 
     respond_to do |format|
       if @turma.save
-        format.html { redirect_to turma_url(@turma), notice: "Turma criada com sucesso." }
+        format.html { redirect_to turma_url(@turma), notice: "Turma was successfully created." }
         format.json { render :show, status: :created, location: @turma }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TurmasController < ApplicationController
   def update
     respond_to do |format|
       if @turma.update(turma_params)
-        format.html { redirect_to turma_url(@turma), notice: "Turma atualizada com sucesso." }
+        format.html { redirect_to turma_url(@turma), notice: "Turma was successfully updated." }
         format.json { render :show, status: :ok, location: @turma }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class TurmasController < ApplicationController
     @turma.destroy
 
     respond_to do |format|
-      format.html { redirect_to turmas_url, notice: "Turma eliminada com sucesso." }
+      format.html { redirect_to turmas_url, notice: "Turma was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,13 +60,11 @@ class TurmasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_turma
-      id = params[:id]
-      redirect_to turma_path, notice: "Erro ao aceder recurso Turmas" and return unless id.present?
-      @turma = Turma.find(id)
+      @turma = Turma.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def turma_params
-      params.require(:turma).permit(:descricao, :quantidade_de_estudantes)
+      params.require(:turma).permit(:numero_da_turma, :descricao, :quantidade_de_estudante)
     end
 end

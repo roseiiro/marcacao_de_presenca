@@ -1,46 +1,37 @@
-<div class="card">
-  <div class="card-header">
-    <% if @turma.id.present? %>
-      <h4>Editar Turma</h4>
-    <% else %>
-      <h4>Nova Turma</h4>
-    <% end %>
-  </div>
+<%= form_with(model: turma) do |f| %>
+  <% if turma.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(turma.errors.count, "error") %> prohibited this turma from being saved:</h2>
 
-  <div class="card-body">
-    <%= form_with(model: turma) do |form| %>
-      <% if turma.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(turma.errors.count, "error") %> prohibited this turma from being saved:</h2>
-
-          <ul>
-            <% turma.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="field">
-        <%= form.label :descricao, class: "form-label" %>
-        <%= form.text_field :descricao, class: "form-control" %>
-      </div>
-
-      <div class="field">
-        <%= form.label :quantidade_de_estudantes, class: "form-label" %>
-        <%= form.text_field :quantidade_de_estudantes, class: "form-control" %>
-      </div>
-
-      <div class="navbar container-fluid px-0">
-        <% unless @turma.id.present? %>
-          <%= link_to 'Voltar', turmas_path, class: "btn btn-sm btn-secondary text-light" %>
-          <%= form.submit "Criar", class: "btn btn-sm btn-primary" %>
-        <% else %>
-          <%= link_to 'Voltar', turmas_path, class: "btn btn-sm btn-secondary text-light" %>
-          <%= form.submit "Atualizar", class: "btn btn-sm btn-primary" %>
+      <ul>
+        <% turma.errors.each do |error| %>
+          <li><%= error.full_message %></li>
         <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
+      </ul>
+    </div>
+  <% end %>
 
+  <div class="field">
+    <%= f.label :numero_da_turma, class: "form-label" %>
+    <%= f.text_field :numero_da_turma, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao, class: "form-label" %>
+    <%= f.text_field :descricao, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantidade_de_estudante, class: "form-label" %>
+    <%= f.text_field :quantidade_de_estudante, class: "form-control" %>
+  </div>
+
+  <div class="actions float-end">
+    <% if @turma.id.present? %>
+      <%= f.submit "Atualizar", class: "btn btn-md btn-primary" %>
+    <% else %>
+      <%= f.submit "Criar", class: "btn btn-md btn-primary" %>
+    <% end %>
+    <%= link_to 'Back', turmas_path, class: "btn btn-md btn-secondary text-white" %>
+  </div>
+<% end %>

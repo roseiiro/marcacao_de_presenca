@@ -1,30 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand text-white-50" href="<%= root_path %>">LogIn App</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick="toggleTest()">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick="toggled()">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <%= link_to "Dashboard", root_path, class: "nav-link text-light active" %>
+                    <%= link_to "Dashboard", root_path, class: "nav-link text-light px-2 active" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to 'Turmas', turmas_url, :class => "nav-link text-light" %>
+                    <%= link_to 'Turmas', turmas_url, :class => "nav-link text-light px-2" %>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#"><%= "#{current_user&.nome} (#{current_user.tipo_de_user})" %> </a>
+                    <%= link_to 'Utilizadores', utilizadors_url, :class => "nav-link text-light px-2" %>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link text-light px-2" href="#"><%= "#{current_user&.nome} (#{current_user.tipo_de_user})" %> </span>
                 </li>
                 <% if user_signed_in? %>
                     <li class="nav-item">
-                        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link text-white-50' %>
+                        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link text-white-50 px-2' %>
                     </li>
                 <% else %>
                     <li class="nav-item">
-                        <%= link_to 'Entrar', new_user_session_path, class: 'nav-link text-white-50' %>
+                        <%= link_to 'Entrar', new_user_session_path, class: 'nav-link text-white-50 px-2' %>
                     </li>
                     <li class="nav-item">
-                        <%= link_to 'Registrar', new_user_registration_path, class: 'nav-link text-white-50' %>
+                        <%= link_to 'Registrar', new_user_registration_path, class: 'nav-link text-white-50 px-2' %>
                     </li>
                 <% end %>
             </ul>
@@ -36,7 +39,7 @@
 
     function toggled() {
         var menuID = document.getElementById("navbarNav");
-        menuID.style.display = "block";
+        return (menuID.classList.contains("show")) ? menuID.classList.remove("show") : menuID.classList.add("show");
     }
 
 </script>
