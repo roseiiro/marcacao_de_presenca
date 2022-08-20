@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Add devise gem
 gem 'devise'
+gem 'simple_form'
 
 gem 'popper_js', '~> 2.9.3'
 gem 'jquery-rails'
