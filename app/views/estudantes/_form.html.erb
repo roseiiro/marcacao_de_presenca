@@ -1,4 +1,10 @@
-<%= form_with(model: estudante) do |form| %>
+<% if @estudante.id.present? %>
+  <h1>Editar Estudante</h1>
+<% else %>
+  <h1>Novo Estudante</h1>
+<% end %>
+
+<%= simple_form_for @estudante do |f| %>
   <% if estudante.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(estudante.errors.count, "error") %> prohibited this estudante from being saved:</h2>
@@ -11,22 +17,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
+  <%= f.input :nome, label: "Nome completo", placeholder: "Nome do estudante", wrapper_html: {class: 'col-sm-12 col-xs-12'}, input_html: { class: "form-label form-control" } %>
+  <%= f.input :nota, label: "Nota", placeholder: "Nota do estudante", wrapper_html: {class: 'col-sm-12 col-xs-12'}, input_html: { class: "form-label form-control" } %>
+  <%= f.input :nif, label: "NIF", placeholder: "NIF", wrapper_html: {class: 'col-sm-12 col-xs-12'}, input_html: { class: "form-label form-control" } %>
 
-  <div class="field">
-    <%= form.label :nota %>
-    <%= form.text_field :nota %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nif %>
-    <%= form.text_field :nif %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="d-flex float-end my-1">
+    <% if @estudante.id.present? %>
+      <%= f.button :submit, "Atualizar", class: "btn btn-sm btn-primary" %>
+    <% else  %>
+      <%= f.button :submit, "Criar", class: "btn btn-sm btn-primary" %>
+    <% end %>
+    <%= link_to 'Voltar', estudantes_path, class: "btn btn-sm btn-secondary text-white ms-2" %>
   </div>
 <% end %>

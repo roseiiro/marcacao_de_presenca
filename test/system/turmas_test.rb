@@ -15,7 +15,7 @@ class TurmasTest < ApplicationSystemTestCase
     click_on "New Turma"
 
     fill_in "Descricao", with: @turma.descricao
-    fill_in "Numero da turma", with: @turma.numero_da_turma
+    fill_in "Identificacao da turma", with: @turma.identificacao_da_turma
     fill_in "Quantidade de estudante", with: @turma.quantidade_de_estudante
     click_on "Create Turma"
 
@@ -28,7 +28,7 @@ class TurmasTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Descricao", with: @turma.descricao
-    fill_in "Numero da turma", with: @turma.numero_da_turma
+    fill_in "Identificacao da turma", with: @turma.identificacao_da_turma
     fill_in "Quantidade de estudante", with: @turma.quantidade_de_estudante
     click_on "Update Turma"
 

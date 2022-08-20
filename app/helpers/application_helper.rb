@@ -8,4 +8,12 @@ module ApplicationHelper
 			when :alert then "alert alert-primary"
 		end
 	end
+
+	def view(chave, valor, classes = "col col-md-4")
+		html =  "<div class='#{classes}'>"
+		html += "<strong class='small'>#{chave}: &nbsp;</strong>"
+		html += "<span class='small'>#{valor}</span>"
+		html += "</div>"
+		html.html_safe
+	end
 end

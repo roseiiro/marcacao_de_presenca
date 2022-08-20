@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :estudantes
-  resources :utilizadors
   resources :turmas
+  resources :estudantes
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   root to: 'home#index'
   

@@ -1,37 +1,32 @@
-<%= form_with(model: turma) do |f| %>
-  <% if turma.errors.any? %>
+<% if @turma.id.present? %>
+  <h1>Editar Turma</h1>
+<% else %>
+  <h1>Nova Turma</h1>
+<% end %>
+
+<%= simple_form_for @turma do |f| %>
+  <% if @turma.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(turma.errors.count, "error") %> prohibited this turma from being saved:</h2>
 
       <ul>
-        <% turma.errors.each do |error| %>
+        <% @turma.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :numero_da_turma, class: "form-label" %>
-    <%= f.text_field :numero_da_turma, class: "form-control" %>
-  </div>
+  <%= f.input :identificacao_da_turma, label: "Identificação da turma", placeholder: "Identificação da turma", wrapper_html: {class: 'col-sm-12 col-xs-12'}, input_html: { class: "form-label form-control" } %>
+  <%= f.input :descricao, label: "Descrição", placeholder: "Descrição generica da turma", wrapper_html: {class: 'col-sm-12 col-xs-12'}, input_html: { class: "form-label form-control" } %>
+  <%= f.input :quantidade_de_estudante, label: "Quantidade de estudantes", placeholder: " Quantidade", wrapper_html: {class: 'col-sm-12 col-xs-12'}, input_html: { class: "form-label form-control" } %>
 
-  <div class="field">
-    <%= f.label :descricao, class: "form-label" %>
-    <%= f.text_field :descricao, class: "form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :quantidade_de_estudante, class: "form-label" %>
-    <%= f.text_field :quantidade_de_estudante, class: "form-control" %>
-  </div>
-
-  <div class="actions float-end">
+  <div class="d-flex float-end my-1">
     <% if @turma.id.present? %>
-      <%= f.submit "Atualizar", class: "btn btn-md btn-primary" %>
-    <% else %>
-      <%= f.submit "Criar", class: "btn btn-md btn-primary" %>
+      <%= f.button :submit, "Atualizar", class: "btn btn-sm btn-primary" %>
+    <% else  %>
+      <%= f.button :submit, "Criar", class: "btn btn-sm btn-primary" %>
     <% end %>
-    <%= link_to 'Back', turmas_path, class: "btn btn-md btn-secondary text-white" %>
+    <%= link_to 'Voltar', turmas_path, class: "btn btn-sm btn-secondary text-white ms-2" %>
   </div>
 <% end %>

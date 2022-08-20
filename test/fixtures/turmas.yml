@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  numero_da_turma: MyString
+  identificacao_da_turma: MyString
   descricao: MyString
   quantidade_de_estudante: 9.99
 
 two:
-  numero_da_turma: MyString
+  identificacao_da_turma: MyString
   descricao: MyString
   quantidade_de_estudante: 9.99

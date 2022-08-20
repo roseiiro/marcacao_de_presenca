@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand text-white-50" href="<%= root_path %>">LogIn App</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick="toggled()">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon text-white"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -13,7 +13,7 @@
                     <%= link_to 'Turmas', turmas_url, :class => "nav-link text-light px-2" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to 'Utilizadores', utilizadors_url, :class => "nav-link text-light px-2" %>
+                    <%= link_to 'Estudantes', estudantes_path, :class => "nav-link text-light px-2" %>
                 </li>
                 <li class="nav-item">
                     <span class="nav-link text-light px-2" href="#"><%= "#{current_user&.nome} (#{current_user.tipo_de_user})" %> </span>

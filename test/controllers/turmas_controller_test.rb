@@ -17,7 +17,7 @@ class TurmasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create turma" do
     assert_difference('Turma.count') do
-      post turmas_url, params: { turma: { descricao: @turma.descricao, numero_da_turma: @turma.numero_da_turma, quantidade_de_estudante: @turma.quantidade_de_estudante } }
+      post turmas_url, params: { turma: { descricao: @turma.descricao, identificacao_da_turma: @turma.identificacao_da_turma, quantidade_de_estudante: @turma.quantidade_de_estudante } }
     end
 
     assert_redirected_to turma_url(Turma.last)
@@ -34,7 +34,7 @@ class TurmasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update turma" do
-    patch turma_url(@turma), params: { turma: { descricao: @turma.descricao, numero_da_turma: @turma.numero_da_turma, quantidade_de_estudante: @turma.quantidade_de_estudante } }
+    patch turma_url(@turma), params: { turma: { descricao: @turma.descricao, identificacao_da_turma: @turma.identificacao_da_turma, quantidade_de_estudante: @turma.quantidade_de_estudante } }
     assert_redirected_to turma_url(@turma)
   end
 

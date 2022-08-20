@@ -65,6 +65,6 @@ class TurmasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def turma_params
-      params.require(:turma).permit(:numero_da_turma, :descricao, :quantidade_de_estudante)
+      params.require(:turma).permit(:identificacao_da_turma, :descricao, :quantidade_de_estudante)
     end
 end

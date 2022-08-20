@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <div class="title">
+      <h4>Estudante</h4>
+    </div>
+    <div class="row py-3">
+      <%= view("Nome", @estudante.nome) %>
+      <%= view("Nota", @estudante.nota) %>
+      <%= view("NIF", @estudante.nif) %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-between">
+      <%= link_to 'Voltar', estudantes_path, class: "btn btn-sm text-white btn-secondary" %>
+      <%= link_to 'Editar', edit_estudante_path(@estudante), class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @estudante.nome %>
-</p>
-
-<p>
-  <strong>Nota:</strong>
-  <%= @estudante.nota %>
-</p>
-
-<p>
-  <strong>Nif:</strong>
-  <%= @estudante.nif %>
-</p>
-
-<%= link_to 'Edit', edit_estudante_path(@estudante) %> |
-<%= link_to 'Back', estudantes_path %>

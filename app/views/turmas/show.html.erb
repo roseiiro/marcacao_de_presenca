@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <div class="title">
+      <h4>Turma</h4>
+    </div>
+    <div class="row py-3">
+      <%= view("Identificacao da turma", @turma.identificacao_da_turma) %>
+      <%= view("Descricao", @turma.descricao) %>
+      <%= view("Quantidade de estudante", @turma.quantidade_de_estudante) %>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-between">
+      <%= link_to 'Voltar', turmas_path, class: "btn btn-sm text-white btn-secondary" %>
+      <%= link_to 'Editar', edit_turma_path(@turma), class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Numero da turma:</strong>
-  <%= @turma.numero_da_turma %>
-</p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @turma.descricao %>
-</p>
-
-<p>
-  <strong>Quantidade de estudante:</strong>
-  <%= @turma.quantidade_de_estudante %>
-</p>
-
-<%= link_to 'Edit', edit_turma_path(@turma) %> |
-<%= link_to 'Back', turmas_path %>
