@@ -3,7 +3,7 @@ class EstudantesController < ApplicationController
 
   # GET /estudantes or /estudantes.json
   def index
-    @estudantes = Estudante.all
+    @pagy, @estudantes = pagy(Estudante.all.order(created_at: :desc))
   end
 
   # GET /estudantes/1 or /estudantes/1.json

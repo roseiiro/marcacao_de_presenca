@@ -3,7 +3,7 @@ class TurmasController < ApplicationController
 
   # GET /turmas or /turmas.json
   def index
-    @turmas = Turma.all
+    @pagy, @turmas = pagy(Turma.all.order(created_at: :desc))
   end
 
   # GET /turmas/1 or /turmas/1.json
@@ -25,7 +25,7 @@ class TurmasController < ApplicationController
 
     respond_to do |format|
       if @turma.save
-        format.html { redirect_to turma_url(@turma), notice: "Turma was successfully created." }
+        format.html { redirect_to turma_url(@turma), notice: "Turma foi criada com sucesso." }
         format.json { render :show, status: :created, location: @turma }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class TurmasController < ApplicationController
   def update
     respond_to do |format|
       if @turma.update(turma_params)
-        format.html { redirect_to turma_url(@turma), notice: "Turma was successfully updated." }
+        format.html { redirect_to turma_url(@turma), notice: "Turma foi atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @turma }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class TurmasController < ApplicationController
     @turma.destroy
 
     respond_to do |format|
-      format.html { redirect_to turmas_url, notice: "Turma was successfully destroyed." }
+      format.html { redirect_to turmas_url, notice: "Turma foi elimanada com sucesso." }
       format.json { head :no_content }
     end
   end

@@ -1,5 +1,8 @@
 module ApplicationHelper
 
+	# include frontend pagination
+	include Pagy::Frontend
+
 	def flash_message (alert)
 		case alert
 			when :notice then "alert alert-info"

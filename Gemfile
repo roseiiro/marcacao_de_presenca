@@ -31,7 +31,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Add devise gem
 gem 'devise'
+
+# Add simple_form gem
 gem 'simple_form'
+
+# Add specific pagy gem for pagination
+gem 'pagy', '~> 5.10'
 
 gem 'popper_js', '~> 2.9.3'
 gem 'jquery-rails'
@@ -50,6 +55,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'faker', '~> 2.22'
 end
 
 group :test do
